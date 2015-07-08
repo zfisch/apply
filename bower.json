@@ -1,0 +1,22 @@
+{
+  "name": "apply",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zfisch/apply",
+  "authors": [
+    "Zack Fischmann <zacharyrobert@gmail.com>"
+  ],
+  "description": "Project management software for the job application process.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone": "~1.2.1",
+    "jquery": "~2.1.4"
+  }
+}

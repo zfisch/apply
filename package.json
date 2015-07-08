@@ -23,10 +23,14 @@
   },
   "homepage": "https://github.com/zfisch/apply",
   "dependencies": {
-    "backbone": "^1.2.1",
     "bookshelf": "^0.8.1",
     "express": "^4.13.1",
-    "jquery": "^2.1.4",
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-uglify": "^0.9.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-nodemon": "^0.4.0",
     "knex": "^0.8.6",
     "pg": "^4.4.0"
   }
