@@ -1,9 +1,15 @@
 # Apply
 Job Application Tracking System
 
+## Purpose
+
+Looking for a job requires organization and pipeline management. Since I'm currently applying for jobs and practicing full-stack development, I decided to build a tool to manage my job applications through the pipeline.
+
+Maybe you'd like to use it too? If so, read on.
+
 ## Usage
 
-Apply is currently under construction.
+Apply is currently under construction -- please feel free to peruse the codebase, but it's currently dysfunctional.
 
 ## Requirements
 
