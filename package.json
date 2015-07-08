@@ -24,7 +24,9 @@
   "homepage": "https://github.com/zfisch/apply",
   "dependencies": {
     "backbone": "^1.2.1",
+    "bookshelf": "^0.8.1",
     "express": "^4.13.1",
-    "jquery": "^2.1.4"
+    "jquery": "^2.1.4",
+    "knex": "^0.8.6"
   }
 }
