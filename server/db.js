@@ -7,7 +7,7 @@ var knex = require('knex')({
     port: 5432,
     user: '',
     password: '',
-    database: 'mealplan',
+    database: 'apply',
     charset: 'utf8'
   }
 });
@@ -37,7 +37,7 @@ db.knex.schema.hasTable('status').then(function(exists) {
             notes.increments('id').primary();
             notes.text('note');
           }).then(function(table){
-            console.log('Created Table', table);
+            console.log('Created Notes Table', table);
 
             /*********************************************************
               Applications Schema
@@ -45,12 +45,12 @@ db.knex.schema.hasTable('status').then(function(exists) {
 
             db.knex.schema.hasTable('applications').then(function(exists){
               if(!exists){
-                db.knex.schema.createTable('applications', function(mealPlanRecipe){
-                  application.string('company_name');
-                  application.integer('status_id').references('status.id');
-                  application.integer('notes_id').references('notes.id');
+                db.knex.schema.createTable('applications', function(applications){
+                  applications.string('company_name');
+                  applications.integer('status_id').references('status.id');
+                  applications.integer('notes_id').references('notes.id');
                 }).then(function(table){
-                  console.log('Created Table', table);
+                  console.log('Created Applications Table', table);
                 });
               }
             });
