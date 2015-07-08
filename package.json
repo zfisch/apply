@@ -1,0 +1,30 @@
+{
+  "name": "apply",
+  "version": "1.0.0",
+  "description": "Job Application Tracking System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zfisch/apply.git"
+  },
+  "keywords": [
+    "job",
+    "application",
+    "tracking",
+    "system"
+  ],
+  "author": "Zack Fischmann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zfisch/apply/issues"
+  },
+  "homepage": "https://github.com/zfisch/apply",
+  "dependencies": {
+    "backbone": "^1.2.1",
+    "express": "^4.13.1",
+    "jquery": "^2.1.4"
+  }
+}
