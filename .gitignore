@@ -30,3 +30,4 @@ bower_components
 # Custom ignore
 .DS_Store
 client/lib
+dist/

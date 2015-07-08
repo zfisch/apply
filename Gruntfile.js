@@ -67,5 +67,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('default', ['jshint', 'watch', 'nodemon']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'watch']);
 };
