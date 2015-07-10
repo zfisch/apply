@@ -2,15 +2,36 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <title>Apply - project management software for the job application process.</title>
     <!-- <link rel="stylesheet" type="text/css" href="./dist/public/style.min.css"> -->
-    <!-- <link rel="icon" type="image/png" href="./styles/favicon_08.png"> -->
   </head>
 
   <body>
-    <h1>Job Applications</h1>
-    <div class="app-container"></div>
+
+    <section class="list view">
+
+      <h1>Your Applications</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody class="applications-container">
+        </tbody>
+      </table>
+
+      <div class="actions">
+        <a href="#projects/add" class="btn primary">New application</a>
+        <a class="btn delete-selected">Delete selected</a>
+      </div>
+
+    </section>
+
     <script src="./dist/public/apply.js"></script>
+
   </body>
 </html>
