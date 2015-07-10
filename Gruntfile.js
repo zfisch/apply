@@ -36,6 +36,7 @@ module.exports = function(grunt) {
           'client/lib/backbone/backbone.js',
           'client/models/*.js',
           'client/collections/*.js',
+          'client/views/AppView.js',
           'client/views/ApplicationsView.js',
           ],
         dest: 'client/dist/public/<%= pkg.name %>.js'
@@ -67,5 +68,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'watch']);
+  grunt.registerTask('default', ['jshint', 'concat', 'watch']);
 };
