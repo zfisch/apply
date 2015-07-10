@@ -3,35 +3,64 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Apply - project management software for the job application process.</title>
-    <!-- <link rel="stylesheet" type="text/css" href="./dist/public/style.min.css"> -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./styles/main.css">
   </head>
 
   <body>
+    <div class="container">
 
-    <section class="list view">
+      <section class="row">
+        <h1>Your Applications</h1>
 
-      <h1>Your Applications</h1>
+        <table class="table table-striped applications-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody class="applications-container">
+          </tbody>
+        </table>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody class="applications-container">
-        </tbody>
-      </table>
+        <div class="actions">
+          <button name="button" class="btn primary" id="add-application-btn">New application</button>
+        </div>
 
-      <div class="actions">
-        <a href="#projects/add" class="btn primary">New application</a>
-        <a class="btn delete-selected">Delete selected</a>
-      </div>
+      </section>
 
-    </section>
+      <section class="row application-form">
+        <div class="col-md-12">
 
+          <form>
+            <div class="form-group">
+              <label for="company-name">Company Name</label>
+              <input name="company-name" class="form-control" id="company-name" placeholder="Enter Company Name">
+            </div>
+            <div class="form-group">
+              <label for="job-title">Job Title</label>
+              <input name="job-title" class="form-control" id="job-title" placeholder="Enter Job Title">
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select name="status" class="form-control" id="status">
+                <option value="applied">Applied</option>
+                <option value="phone-screen-scheduled">Phone Screen Scheduled</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <textarea name="notes" rows="10" class="form-control" id="notes"></textarea>
+            </div>
+            <input type="submit" class="btn btn-default">
+          </form>
+
+        </div>
+      </section>
+
+    </div>
     <script src="./dist/public/apply.js"></script>
-
   </body>
 </html>

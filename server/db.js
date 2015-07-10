@@ -25,7 +25,6 @@ db.knex.schema.hasTable('status').then(function(exists) {
       status.increments('id').primary();
       status.string('status');
     }).then(function (table) {
-      console.log('Created Status Table', table);
 
       /*********************************************************
         Notes Schema
@@ -37,7 +36,6 @@ db.knex.schema.hasTable('status').then(function(exists) {
             notes.increments('id').primary();
             notes.text('note');
           }).then(function(table){
-            console.log('Created Notes Table', table);
 
             /*********************************************************
               Applications Schema
@@ -49,8 +47,6 @@ db.knex.schema.hasTable('status').then(function(exists) {
                   applications.string('company_name');
                   applications.integer('status_id').references('status.id');
                   applications.integer('notes_id').references('notes.id');
-                }).then(function(table){
-                  console.log('Created Applications Table', table);
                 });
               }
             });
