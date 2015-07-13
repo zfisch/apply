@@ -37,6 +37,7 @@ module.exports = function(grunt) {
           'client/models/*.js',
           'client/collections/*.js',
           'client/views/ApplicationView.js',
+          'client/views/NewApplicationFormView.js',
           'client/scripts/*.js',
           ],
         dest: 'client/dist/public/<%= pkg.name %>.js'

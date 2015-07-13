@@ -1,0 +1,26 @@
+<div class="col-md-12">
+
+  <form action="/applications" onSubmit="addApplication()">
+    <div class="form-group">
+      <label for="company-name">Company Name</label>
+      <input name="company-name" class="form-control" id="company-name" placeholder="Enter Company Name">
+    </div>
+    <div class="form-group">
+      <label for="job-title">Job Title</label>
+      <input name="job-title" class="form-control" id="job-title" placeholder="Enter Job Title">
+    </div>
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select name="status" class="form-control" id="status">
+        <option value="applied">Applied</option>
+        <option value="phone-screen-scheduled">Phone Screen Scheduled</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="notes">Notes</label>
+      <textarea name="notes" rows="10" class="form-control" id="notes"></textarea>
+    </div>
+    <input type="submit" class="btn btn-default">
+  </form>
+
+</div>
