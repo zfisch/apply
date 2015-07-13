@@ -36,6 +36,7 @@ module.exports = function(grunt) {
           'client/lib/backbone/backbone.js',
           'client/models/*.js',
           'client/collections/*.js',
+          'client/views/ApplicationFormContainerView.js',
           'client/views/ApplicationsTableView.js',
           'client/views/ApplicationView.js',
           'client/views/NewApplicationFormView.js',
