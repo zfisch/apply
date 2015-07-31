@@ -1,8 +1,5 @@
-var express = require('express');
-var app = express();
+var app = require('./server/server.js');
 
-app.use(express.static(__dirname + '/client'));
+var port = process.env.PORT || 3000;
 
-var db = require('./server/db.js');
-
-app.listen(3000);
+app.listen(port);

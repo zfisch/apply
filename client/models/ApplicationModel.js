@@ -1,5 +1,5 @@
 var ApplicationModel = Backbone.Model.extend({
 
-  urlRoot: 'api/applications',
+  urlRoot: 'api/application',
 
 });
