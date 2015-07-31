@@ -10,6 +10,7 @@ module.exports = {
         } else {
           user.comparePassword(password, function(match){
             if (match) {
+              console.log('User match: ', user);
               resolve(user);
             } else {
               reject({ error: 'Incorrect password.', status: 401 })
@@ -23,12 +24,11 @@ module.exports = {
   signup: function(username, password) {
     console.log(username, password);
     return new Promise(function(resolve, reject){
-      console.log('created new promise');
       new User({ username: username }).fetch().then(function(user) {
-        console.log('tried fetching user from db');
         if ( !user ) {
           new User({username: username, password: password}).save()
           .then(function(user) {
+            console.log('New user: ', user);
             resolve(user);
           })
           .catch(function(error){

@@ -1,8 +1,8 @@
-var SignupFormView = Backbone.View.extend({
+var LoginFormView = Backbone.View.extend({
 
   el: 'div',
 
-  template: Handlebars.templates.signupForm,
+  template: Handlebars.templates.loginForm,
 
   events: {
     "submit": "submitForm"
@@ -18,12 +18,18 @@ var SignupFormView = Backbone.View.extend({
       "username": e.target['username'].value,
       "password": e.target['password'].value,
     });
-    user.save(null, {
-      error: function(model, res, options){
-        if (res.status === 409) alert ('User already exists.');
+    $.ajax({
+      type: "POST",
+      url: "api/user/login",
+      data: JSON.stringify(user.attributes),
+      dataType: "json",
+      contentType: "application/json",
+      success: function(res){
+        var user = new UserModel(res);
+        router.navigate('dashboard', {trigger: true});
       },
-      success: function(model, res, options){
-        router.navigate("dashboard", {trigger: true});
+      error: function (xhr, ajaxOptions, thrownError) {
+        alert('Please check your username and/or password!');
       }
     });
   },

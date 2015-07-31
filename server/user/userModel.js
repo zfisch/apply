@@ -6,7 +6,6 @@ var User = db.Model.extend({
   tableName: 'applicant',
 
   initialize: function() {
-    console.log('creating new user');
     this.on('creating', this.hashPassword, this);
   },
 

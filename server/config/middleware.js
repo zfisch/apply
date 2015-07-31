@@ -13,6 +13,7 @@ module.exports = function(app, express) {
   router.post('/application', applicationController.saveApplication);
 
   router.post('/user', appController.signup);
+  router.post('/user/login', appController.login);
 
   app.use('/api', router);
 
