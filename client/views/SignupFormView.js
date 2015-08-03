@@ -1,6 +1,8 @@
 var SignupFormView = Backbone.View.extend({
 
-  el: 'div',
+  tagName: 'div',
+
+  className: 'signup-form',
 
   template: Handlebars.templates.signupForm,
 
@@ -29,19 +31,16 @@ var SignupFormView = Backbone.View.extend({
   },
 
   render: function() {
-    $('.container').html(this.template());
+    this.$el.append(this.template());
+    $('.app-container').append(this.$el);
     return this;
   },
 
   close: function() {
     _.each(this.subViews, function(view) {
-      view.undelegateEvents();
-      $(view).empty;
-      view.unbind();
+      view.remove();
     });
-    this.undelegateEvents();
-    $(this).empty;
-    this.unbind();
+    this.remove();
   }
 
 });

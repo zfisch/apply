@@ -46,7 +46,7 @@ To run the app for development, PostgreSQL must be installed with the proper rol
 5. Type command `ALTER ROLE root WITH CREATEDB;`
 6. Type command `ALTER ROLE root WITH REPLICATION;`
 
-#### Create mealplan database ####
+#### Create apply database ####
 Almost done! The app requires a database named "apply", so run the following:
 
 ```psql

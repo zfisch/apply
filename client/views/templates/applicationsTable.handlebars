@@ -1,5 +1,7 @@
 <h1>Your Applications</h1>
-
+<button type="button" class="btn btn-primary add-application" data-toggle="modal" data-target="#new-application-modal">
+  Add Application
+</button>
 <table class="table table-striped applications-table">
   <thead>
     <tr>
@@ -11,3 +13,44 @@
   <tbody class="applications-container">
   </tbody>
 </table>
+
+
+<div class="modal fade" id="new-application-modal" tabindex="-1" role="dialog" aria-labelledby="new-application-modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="new-application-modal">New Application</h4>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <form id="application-form-container" class="new-application">
+            <div class="form-group">
+              <label for="company-name">Company Name</label>
+              <input name="company-name" class="form-control" id="company-name" placeholder="Enter Company Name">
+            </div>
+            <div class="form-group">
+              <label for="job-title">Job Title</label>
+              <input name="job-title" class="form-control" id="job-title" placeholder="Enter Job Title">
+            </div>
+            <div class="form-group">
+              <label for="status">Status</label>
+              <select name="status" class="form-control" id="status">
+                <option value="applied">Applied</option>
+                <option value="phone-screen-scheduled">Phone Screen Scheduled</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="notes">Notes</label>
+              <textarea name="notes" rows="10" class="form-control" id="notes"></textarea>
+            </div>
+            <input type="submit" class="btn btn-primary" value="Save application">
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

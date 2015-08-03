@@ -12,7 +12,7 @@ Router = Backbone.Router.extend({
   index: function() {
     var that = this;
     this.closeCurrentView(function(){
-      that.loadView(new SignupFormView());
+      that.loadView(new LoginFormView());
     });
   },
 
@@ -36,6 +36,7 @@ Router = Backbone.Router.extend({
 
   dashboard: function() {
     var that = this;
+    console.log(this);
     this.closeCurrentView(function(){
       that.loadView(new DashboardView());
     });
