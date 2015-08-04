@@ -29,8 +29,7 @@ gulp.task('scripts', ['clean'], function() {
     .pipe(gulp.dest('client/dist/assets/js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('client/dist/assets/js'))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    .pipe(gulp.dest('client/dist/assets/js'));
 });
 
 gulp.task('dependencies', function() {
@@ -39,8 +38,7 @@ gulp.task('dependencies', function() {
     .pipe(gulp.dest('client/dist/assets/js'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('client/dist/assets/js'))
-    .pipe(notify({ message: 'Scripts task complete' }));
+    .pipe(gulp.dest('client/dist/assets/js'));
 });
 
 gulp.task('clean', function(cb) {

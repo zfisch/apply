@@ -12,15 +12,18 @@ var ApplicationsTableView = Backbone.View.extend({
 
   submitNewApplication: function(e) {
     e.preventDefault();
-    console.log('INSIDE SUBMIT NEW APP');
     var application = new ApplicationModel({
       "companyName": e.target['company-name'].value,
       "jobTitle": e.target['job-title'].value,
-      "status": e.target.status.value,
-      "notes": e.target.notes.value
+      "jobLocation": e.target['job-location'].value,
+      "jobPosting": e.target['job-posting'].value,
+      "contactName": e.target['contact-name'].value,
+      "contactEmail": e.target['contact-email'].value,
+      "contactPhone": e.target['contact-phone'].value,
+      "statusId": e.target.status.value,
+      "note": e.target.notes.value
     });
-    // application.save();
-    console.log(application);
+    application.save();
   },
 
   render: function() {
