@@ -24,7 +24,7 @@ db.knex.schema.hasTable('applicant').then(function(exists){
 
     return db.knex.schema.createTable('applicant', function(t){
       t.increments('id').primary();
-      t.string('username');
+      t.string('email');
       t.string('password');
       t.timestamp('createdAt');
       t.timestamp('updatedAt');

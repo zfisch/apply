@@ -17,7 +17,7 @@ var LoginFormView = Backbone.View.extend({
   submitForm: function(e){
     e.preventDefault();
     var user = new UserModel({
-      "username": e.target['username'].value,
+      "email": e.target['email'].value,
       "password": e.target['password'].value,
     });
     $.ajax({
@@ -31,7 +31,7 @@ var LoginFormView = Backbone.View.extend({
         router.navigate('dashboard', { trigger: true });
       },
       error: function (xhr, ajaxOptions, thrownError) {
-        alert('Please check your username and/or password!');
+        alert('Please check your email and/or password!');
       }
     });
   },

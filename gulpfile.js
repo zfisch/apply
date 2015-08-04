@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 var paths = {
   client_scripts: ['client/collections/*.js', 'client/models/*.js', 'client/views/**/*.js', 'client/scripts/*.js', 'client/router/router.js'],
-  server_scripts: ['index.js', 'server/**/*.js', 'gulpfile.js'],
+  server_scripts: ['index.js', 'server/**/*.js'],
   all_scripts: ['index.js', 'server/**/*.js', 'gulpfile.js', 'client/collections/*.js', 'client/models/*.js', 'client/views/**/*.js', 'client/scripts/*.js', 'client/router/router.js'],
   templates: ['client/views/templates/*.handlebars'],
   dependencies: ['client/lib/jquery/dist/jquery.js', 'client/lib/underscore/underscore.js', 'client/lib/backbone/backbone.js']
