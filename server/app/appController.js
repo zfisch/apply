@@ -10,7 +10,7 @@ var contactController = require('../contact/contactController');
 module.exports = {
 
   login: function(req, res){
-    userController.login(req.body.username, req.body.password)
+    userController.login(req.body.email, req.body.password)
     .then(function(user){
       res.status(200).send(user);
     })
@@ -20,7 +20,7 @@ module.exports = {
   },
 
   signup: function(req, res){
-    userController.signup(req.body.username, req.body.password)
+    userController.signup(req.body.email, req.body.password)
     .then(function(user){
       res.status(200).send(user);
     })

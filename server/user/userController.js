@@ -2,9 +2,9 @@ var Promise = require('bluebird');
 var User = require('./userModel');
 
 module.exports = {
-  login: function(username, password) {
+  login: function(email, password) {
     return new Promise(function(resolve, reject){
-      new User({ username: username }).fetch().then(function(user){
+      new User({ email: email }).fetch().then(function(user){
         if (!user) {
           reject({ error: 'No such user.', status: 401 });
         } else {
@@ -21,12 +21,12 @@ module.exports = {
     })
   },
 
-  signup: function(username, password) {
-    console.log(username, password);
+  signup: function(email, password) {
+    console.log(email, password);
     return new Promise(function(resolve, reject){
-      new User({ username: username }).fetch().then(function(user) {
+      new User({ email: email }).fetch().then(function(user) {
         if ( !user ) {
-          new User({username: username, password: password}).save()
+          new User({email: email, password: password}).save()
           .then(function(user) {
             console.log('New user: ', user);
             resolve(user);

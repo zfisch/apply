@@ -6,6 +6,8 @@ var Application = require('../application/applicationModel');
 var User = db.Model.extend({
   tableName: 'applicant',
 
+  hasTimestamps: ["createdAt", "updatedAt"],
+
   applications: function() {
     return this.hasMany(Application);
   },

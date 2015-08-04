@@ -17,7 +17,7 @@ var SignupFormView = Backbone.View.extend({
   submitForm: function(e){
     e.preventDefault();
     var user = new UserModel({
-      "username": e.target['username'].value,
+      "email": e.target['email'].value,
       "password": e.target['password'].value,
     });
     user.save(null, {
