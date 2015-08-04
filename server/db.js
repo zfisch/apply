@@ -34,9 +34,7 @@ db.knex.schema.hasTable('applicant').then(function(exists){
 
       return db.knex.schema.createTable('company', function(t){
         t.increments('id').primary();
-        t.string('company_name');
-        t.string('address');
-        t.string('phone', 12)
+        t.string('companyName');
       });
     }).then(function(){
 
@@ -46,10 +44,10 @@ db.knex.schema.hasTable('applicant').then(function(exists){
 
       return db.knex.schema.createTable('contact', function(t){
         t.increments('id').primary();
-        t.integer('company_id').unsigned().references('company.id');
-        t.string('name');
-        t.string('email');
-        t.string('phone', 12)
+        t.integer('companyId').unsigned().references('company.id');
+        t.string('contactName');
+        t.string('contactEmail');
+        t.string('contactPhone', 12)
       });
     }).then(function(){
 
@@ -59,20 +57,37 @@ db.knex.schema.hasTable('applicant').then(function(exists){
 
       return db.knex.schema.createTable('job', function(t){
         t.increments('id').primary();
-        t.string('job_title');
-        t.string('link');
+        t.string('jobTitle');
+        t.string('jobLocation');
+        t.string('jobPosting');
       });
     }).then(function(){
 
 
       /*********************************************************
-        Status Schema
+        Status Schema -- seeded with status options
       *********************************************************/
 
       return db.knex.schema.createTable('status', function(t){
         t.increments('id').primary();
         t.string('status');
       });
+    }).then(function(){
+      //Make sure to insert in the same order as options in applicationsTable.handlebars!
+      return db.knex('status').insert([
+        {status: 'Just applied'},
+        {status: 'Followed up on initial application'},
+        {status: 'Scheduled phone screen'},
+        {status: 'Scheduled technical screen'},
+        {status: 'Scheduled challenge'},
+        {status: 'Scheduled onsite interview'},
+        {status: 'Scheduled second onsite interview'},
+        {status: 'Recieved offer'},
+        {status: 'Made counter-offer'},
+        {status: 'Accepted offer'},
+        {status: 'Declined by company'},
+        {status: 'Not interested in opportunity'}
+      ]);
     }).then(function(){
 
       /*********************************************************
@@ -81,11 +96,12 @@ db.knex.schema.hasTable('applicant').then(function(exists){
 
       return db.knex.schema.createTable('application', function(t){
         t.increments('id').primary();
-        t.integer('applicant_id').unsigned().references('applicant.id');
-        t.integer('status_id').unsigned().references('status.id');
-        t.integer('company_id').unsigned().references('company.id');
-        t.integer('job_id').unsigned().references('job.id');
-        t.timestamp('last_action');
+        t.integer('applicantId').unsigned().references('applicant.id');
+        t.integer('statusId').unsigned().references('status.id');
+        t.integer('companyId').unsigned().references('company.id');
+        t.integer('jobId').unsigned().references('job.id');
+        t.timestamp('createdAt');
+        t.timestamp('updatedAt');
       });
     }).then(function(){
 
@@ -95,7 +111,7 @@ db.knex.schema.hasTable('applicant').then(function(exists){
 
       return db.knex.schema.createTable('note', function(t){
         t.increments('id').primary();
-        t.integer('application_id').unsigned().references('application.id');
+        t.integer('applicationId').unsigned().references('application.id');
         t.text('note');
       });
     });

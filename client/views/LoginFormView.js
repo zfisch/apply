@@ -1,6 +1,8 @@
 var LoginFormView = Backbone.View.extend({
 
-  el: 'div',
+  tagName: 'div',
+
+  className: 'login-form',
 
   template: Handlebars.templates.loginForm,
 
@@ -26,7 +28,7 @@ var LoginFormView = Backbone.View.extend({
       contentType: "application/json",
       success: function(res){
         var user = new UserModel(res);
-        router.navigate('dashboard', {trigger: true});
+        router.navigate('dashboard', { trigger: true });
       },
       error: function (xhr, ajaxOptions, thrownError) {
         alert('Please check your username and/or password!');
@@ -35,19 +37,16 @@ var LoginFormView = Backbone.View.extend({
   },
 
   render: function() {
-    $('.container').html(this.template());
+    this.$el.append(this.template());
+    $('.app-container').append(this.$el);
     return this;
   },
 
   close: function() {
     _.each(this.subViews, function(view) {
-      view.undelegateEvents();
-      $(view).empty;
-      view.unbind();
+      view.remove();
     });
-    this.undelegateEvents();
-    $(this).empty;
-    this.unbind();
+    this.remove();
   }
 
 });

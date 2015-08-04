@@ -1,13 +1,30 @@
 var DashboardView = Backbone.View.extend({
-  el: 'div',
+
+  tagName: 'div',
+
+  className: 'dashboard-container',
+
+  template: Handlebars.templates.dashboard,
 
   initialize: function(){
+    this.subViews = [new NavbarView(), new ApplicationsTableView()];
     this.render();
   },
 
   render: function() {
-    $('.container').html("<h1>THIS IS AN EXPERIMENT</h1>");
+    this.$el.append(this.template());
+    $('.app-container').append(this.$el);
+    _.each(this.subViews, function(view) {
+      view.render();
+    });
     return this;
+  },
+
+  close: function() {
+    _.each(this.subViews, function(view) {
+      view.remove();
+    });
+    this.remove();
   }
 
 });

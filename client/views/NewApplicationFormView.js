@@ -26,4 +26,3 @@ var NewApplicationFormView = Backbone.View.extend({
 
 });
 
-var newApplicationFormView = new NewApplicationFormView();

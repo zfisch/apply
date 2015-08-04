@@ -1,9 +1,14 @@
 var db = require('../db');
 var bcrypt = require('bcrypt');
 var Promise  = require('bluebird');
+var Application = require('../application/applicationModel');
 
 var User = db.Model.extend({
   tableName: 'applicant',
+
+  applications: function() {
+    return this.hasMany(Application);
+  },
 
   initialize: function() {
     this.on('creating', this.hashPassword, this);
