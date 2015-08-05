@@ -10,7 +10,6 @@ module.exports = {
         } else {
           user.comparePassword(password, function(match){
             if (match) {
-              console.log('User match: ', user);
               resolve(user);
             } else {
               reject({ error: 'Incorrect password.', status: 401 })
@@ -28,14 +27,13 @@ module.exports = {
         if ( !user ) {
           new User({email: email, password: password}).save()
           .then(function(user) {
-            console.log('New user: ', user);
             resolve(user);
           })
           .catch(function(error){
-            reject({'error saving new user to database ': error})
+            reject({ 'error saving new user to database ': error })
           })
         } else {
-          reject({error: 'Account already exists.', status: 409});
+          reject({ error: 'Account already exists.', status: 409 });
         }
       });
     });

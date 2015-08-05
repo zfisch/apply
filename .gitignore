@@ -31,3 +31,4 @@ bower_components
 .DS_Store
 client/lib
 dist/
+dump.rdb
