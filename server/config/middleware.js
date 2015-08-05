@@ -30,6 +30,14 @@ module.exports = function(app, express) {
 
   router.post('/application', appController.createNewApplication);
 
+  router.get('/session', function(req, res){
+    if(!req.session.user){
+      res.status(401).send({ error: "User is not logged in." });
+    } else {
+      res.sendStatus(200);
+    }
+  });
+
   router.post('/user', appController.signup);
   router.post('/user/login', appController.login);
   router.post('/user/logout', appController.logout);

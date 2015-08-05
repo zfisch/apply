@@ -17,6 +17,7 @@ var NavbarView = Backbone.View.extend({
       dataType: "text",
       contentType: "text",
       success: function(res){
+        router._isLoggedIn = false;
         router.navigate('login', { trigger: true });
       },
       error: function(xhr, ajaxOptions, thrownError){
