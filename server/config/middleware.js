@@ -16,6 +16,8 @@ module.exports = function(app, express) {
 
   app.use(cookieParser());
   app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  // app.use(bodyParser.text());
   app.use(morgan('tiny'));
   app.use(express.static(__dirname + '/../../client'));
 
@@ -26,27 +28,11 @@ module.exports = function(app, express) {
     saveUninitialized: false
   }));
 
-  // router.post('/session', utils.createSession);
-
-  //  function(req, res) {
-  //   req.session.redSession = req.params.value;
-  //   res.send('session written in Redis successfully');
-  // });
-
-  // router.get('/session', utils.getSession);
-
-  //   function(req, res) {
-  //   if(req.session.redSession)
-  //     res.send('the session value stored in Redis is: ' + req.session.redSession);
-  //   else
-  //     res.send("no session value stored in Redis ");
-  // });
-
   router.post('/application', appController.createNewApplication);
 
   router.post('/user', appController.signup);
   router.post('/user/login', appController.login);
-  // router.post('/user/logout', appController.logout);
+  router.post('/user/logout', appController.logout);
 
   app.use('/api', router);
 

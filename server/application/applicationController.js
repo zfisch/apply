@@ -5,8 +5,10 @@ module.exports = {
 
   createApplication: function(req){
     return new Promise(function(resolve, reject){
-      console.log(req.body.statusId, req.session.userId);
-      new Application({ "statusId": parseInt(req.body.statusId, 10), "applicantId": req.session.userId })
+      new Application({
+        "statusId": parseInt(req.body.statusId, 10),
+        "applicantId": req.session.user.id
+      })
       .save()
       .catch(function(err) {
         reject({ "Error creating new application": err, status: 500 });

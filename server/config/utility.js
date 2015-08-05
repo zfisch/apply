@@ -10,18 +10,6 @@ var Promise = require('bluebird')
 //   apiKey = 98765;
 // }
 
-// exports.createSession = function(req, res) {
-//   req.session.redisSession = req.params.value;
-//   res.send('session written in Redis successfully');
-// };
-
-// exports.getSession = function(req, res) {
-//   if(req.session.redisSession) {
-//     res.send('the session value stored in Redis is: ' + req.session.redisSession);
-//   } else {
-//     res.send("no session value stored in Redis ");
-//   }
-// });
 
 exports.isLoggedIn = function(req) {
   return req.session ? !!req.session.user : false;

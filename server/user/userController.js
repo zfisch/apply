@@ -2,23 +2,6 @@ var Promise = require('bluebird');
 var User = require('./userModel');
 
 module.exports = {
-  login: function(email, password) {
-    return new Promise(function(resolve, reject){
-      new User({ email: email }).fetch().then(function(user){
-        if (!user) {
-          reject({ error: 'No such user.', status: 401 });
-        } else {
-          user.comparePassword(password, function(match){
-            if (match) {
-              resolve(user);
-            } else {
-              reject({ error: 'Incorrect password.', status: 401 })
-            }
-          });
-        }
-      });
-    })
-  },
 
   signup: function(email, password) {
     console.log(email, password);
@@ -37,5 +20,35 @@ module.exports = {
         }
       });
     });
+  },
+
+  login: function(email, password) {
+    return new Promise(function(resolve, reject){
+      new User({ email: email }).fetch().then(function(user){
+        if (!user) {
+          reject({ error: 'No such user.', status: 401 });
+        } else {
+          user.comparePassword(password, function(match){
+            if (match) {
+              resolve(user);
+            } else {
+              reject({ error: 'Incorrect password.', status: 401 })
+            }
+          });
+        }
+      });
+    })
+  },
+
+  logout: function(req) {
+    return new Promise(function(resolve, reject){
+      req.session.destroy();
+      if(!req.session){
+        resolve();
+      } else {
+        reject({ error: 'Session still exists!', status: 500 });
+      }
+    });
   }
+
 };

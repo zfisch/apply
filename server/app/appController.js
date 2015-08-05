@@ -12,7 +12,8 @@ module.exports = {
   login: function(req, res){
     userController.login(req.body.email, req.body.password)
     .then(function(user){
-      req.session.userId = user.id;
+      //Store userID on the session for later reference.
+      req.session.user = user;
       res.status(200).send(user);
     })
     .catch(function(error){
@@ -23,7 +24,8 @@ module.exports = {
   signup: function(req, res){
     userController.signup(req.body.email, req.body.password)
     .then(function(user){
-      req.session.userId = user.id;
+      //Store userID on the session for later reference.
+      req.session.user = user;
       res.status(200).send(user);
     })
     .catch(function(error){
@@ -31,9 +33,24 @@ module.exports = {
     })
   },
 
-  //Creating a new application require saving all of the relevant normalized data to the DB.
-  //In this case, all of that information gets sent in a single Application model, and is
-  //handled by the server and stored in the correct tables.
+  logout: function(req, res){
+    userController.logout(req)
+    .then(function(){
+      res.sendStatus(200);
+    })
+    .catch(function(error){
+      res.status(error.status || 500).send({ 'Logout error': error });
+    });
+  },
+
+  /*
+  CREATING AN APPLICATION:
+  Because the DB is normalized, saving an application requires some maneuvering to get all of the
+  correct information in the correct tables. All application information is sent in a single request
+  through an Application Model from the client, including information about the User, Status, Company,
+  Contact, Notes, and Job.
+  */
+
   createNewApplication: function(req, res){
     applicationController.createApplication(req)
     .catch(function(error){
