@@ -34,7 +34,6 @@ var ApplicationsTableView = Backbone.View.extend({
       success: function(collection){
         console.log('fetched collection: ', collection);
         collection.map(function(application){
-          console.log('Mapping', application);
           new ApplicationView({ model: application });
         });
       }

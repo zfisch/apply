@@ -9,7 +9,8 @@ var knex = require('knex')({
     password: '',
     database: 'apply',
     charset: 'utf8'
-  }
+  },
+  debug: true
 });
 
 var db = require('bookshelf')(knex);
