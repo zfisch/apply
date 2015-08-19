@@ -34,9 +34,10 @@ module.exports = {
 
   getApplications: function(req){
     return new Promise(function(resolve, reject){
-      console.log(req);
       new Applications()
-      .fetch()
+      .query(function(qb){
+        qb.where('applicantId', req.session.user.id);
+      }).fetch()
       .catch(function(err){
         reject({ "Error getting applications": err, status: 500 });
       })
