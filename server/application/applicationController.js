@@ -1,5 +1,6 @@
 var Promise = require('bluebird');
 var Application = require('./applicationModel');
+var Applications = require('./applicationsCollection');
 
 module.exports = {
 
@@ -27,6 +28,20 @@ module.exports = {
       })
       .then(function(updatedApplication){
         resolve(updatedApplication);
+      });
+    });
+  },
+
+  getApplications: function(req){
+    return new Promise(function(resolve, reject){
+      console.log(req);
+      new Applications()
+      .fetch()
+      .catch(function(err){
+        reject({ "Error getting applications": err, status: 500 });
+      })
+      .then(function(applications){
+        resolve(applications);
       });
     });
   }

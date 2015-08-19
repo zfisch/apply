@@ -27,7 +27,7 @@ var LoginFormView = Backbone.View.extend({
       dataType: "json",
       contentType: "application/json",
       success: function(res){
-        var user = new UserModel(res);
+        router.user.set({ id: res.id, username: res.email });
         router.navigate('dashboard', { trigger: true });
       },
       error: function (xhr, ajaxOptions, thrownError) {

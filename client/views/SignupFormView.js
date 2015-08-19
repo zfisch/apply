@@ -25,6 +25,7 @@ var SignupFormView = Backbone.View.extend({
         if (res.status === 409) alert ('User already exists.');
       },
       success: function(model, res, options){
+        router.user.set({ id: res.id, username: res.email });
         router.navigate("dashboard", {trigger: true});
       }
     });
