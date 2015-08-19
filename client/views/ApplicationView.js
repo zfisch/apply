@@ -6,13 +6,13 @@ var ApplicationView = Backbone.View.extend({
 
   template: Handlebars.templates.applicationRow,
 
-  initialize: function(model){
-    this.model = model;
+  initialize: function(){
     this.render();
   },
 
   render: function() {
-    $('.applications-container').append(this.template());
+    $('.applications-container').append(this.template({ application: this.model.toJSON() }));
+    console.log(this.model.toJSON());
     return this;
   }
 
