@@ -1,13 +1,6 @@
 var Promise = require('bluebird');
 var db = require('../db');
-var utils = require('../config/utility');
-var Application = require('../application/applicationModel');
-var Note = require('../note/noteModel');
 var Company = require('../company/companyModel');
-var Contact = require('../contact/contactModel');
-var Status = require('../status/statusModel');
-var Job = require('../job/jobModel');
-var User = require('../user/userModel');
 
 module.exports = {
 

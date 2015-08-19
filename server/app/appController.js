@@ -43,6 +43,16 @@ module.exports = {
     });
   },
 
+  getUserApplications: function(req, res){
+    applicationController.getApplications(req)
+    .then(function(applications){
+      res.status(200).send(applications);
+    })
+    .catch(function(error){
+      res.status(error.status || 500).send({ 'Get applications error': error});
+    });
+  },
+
   /*
   CREATING AN APPLICATION:
   Because the DB is normalized, saving an application requires some maneuvering to get all of the
@@ -66,7 +76,7 @@ module.exports = {
       .then(function(companyId){
 
         //Create a new contact for the application if necessarry
-        if(req.body.contactName || !req.body.contactEmail || req.body.contactPhone){
+        if(req.body.contactName || req.body.contactEmail || req.body.contactPhone){
           contactController.createContact(req.body, companyId)
           .catch(function(error){
             res.status(error.status || 500).send(error);

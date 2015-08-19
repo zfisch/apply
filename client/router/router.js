@@ -1,6 +1,5 @@
 Router = Backbone.Router.extend({
 
-
   routes: {
     '': 'index',
     'landing': 'landing',
@@ -13,6 +12,8 @@ Router = Backbone.Router.extend({
 
   _isLoggedIn: false,
 
+  user: new UserModel(),
+
   checkAuth: function(callback) {
     if (this._isLoggedIn) {
       callback();
@@ -21,13 +22,13 @@ Router = Backbone.Router.extend({
       $.ajax({
         type: "GET",
         url: "api/session",
-        dataType: "text",
-        contentType: "text",
         success: function(res){
           that._isLoggedIn = true;
+          that.user.set({ id: res.id, username: res.email });
           callback();
         },
         error: function(xhr, ajaxOptions, thrownError){
+          that.user = new UserModel();
           that.navigate('login', { trigger: true });
         }
       });

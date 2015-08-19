@@ -1,5 +1,7 @@
 var ApplicationModel = Backbone.Model.extend({
 
-  urlRoot: 'api/application',
+  initialize: function(){
+    this.url = 'api/user/' + router.user.id + '/application';
+  }
 
 });
