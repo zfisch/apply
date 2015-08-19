@@ -54,7 +54,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['jshint'], function() {
-  gulp.start('scripts');
   gulp.start('precompile');
+  gulp.start('scripts');
   gulp.start('watch');
 });

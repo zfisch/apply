@@ -4,9 +4,10 @@ var ApplicationView = Backbone.View.extend({
 
   className: 'application-view',
 
-  template: _.template('<tr><td>row1</td><td>row2</td></tr>'),
+  template: Handlebars.templates.applicationRow,
 
-  initialize: function(){
+  initialize: function(model){
+    this.model = model;
     this.render();
   },
 
